@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrapper {
+            width: 600px;
+            margin: 0 auto;
+            border: 0px solid gray;
+            padding: 40px 40px;
+            box-shadow: 1.8px 2.4px 5px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        ::placeholder {
+            color: #afafaf;
+            font-size: 16px;
+            font-family: Microsoft JhengHei;
+        }
+
+        .top-block {
+            background-color: #fad312;
+            height: 8px;
+        }
+
+        .wrapper h1{
+            margin-bottom: 35px;
+            font-family: Microsoft JhengHei;
+        }
+
+        .time_and_place {
+            font-size: 14px;
+            line-height: 20px;
+            margin-bottom: 15px;
+            font-family: Microsoft JhengHei;
+        }
+
+        span {
+            color: #e74149;
+        }
+
+        .wrapper .must {
+            font-size: 16px;
+            color: #e74149;
+            font-family: Microsoft JhengHei;
+        }
+
+        .form-group .label {
+            font-size: 20px;
+            display: block;
+            margin: 50px 0px 20px 0px;
+            font-family: Microsoft JhengHei;
+        }
+
+        .form-group input {
+            display: block;
+            border: 1px solid #d0d0d0;
+            width: 287px;
+            height: 23px;
+        }
+
+        .form-group .advice {
+            font-size: 20px;
+            display: block;
+            margin: 50px 0px 8px 0px;
+            font-family: Microsoft JhengHei;
+        }
+
+        .form-group label+p {
+            font-size: 14px;
+            margin-bottom: 24px;
+            font-family: Microsoft JhengHei;
+        }
+
+        .form-group-inline div{
+            position: relative;
+        }
+
+        .form-group-inline-title {
+            margin: 50px 0px 20px 0px;
+        }
+
+        .form-group-inline p {
+            font-size: 20px;
+            font-family: Microsoft JhengHei;
+        }
+
+        .form-group-inline .description {
+            font-size: 14px;
+            font-family: Microsoft JhengHei;
+        }
+
+        .form-group-inline div+div {
+            margin-top: 12px;
+        }
+
+        .form-group-inline input {
+            cursor: pointer; 
+            background-color: #bababa;
+            opacity: 0;
+            margin-right: 5px;
+        }
+
+        .fake-radio {
+            position: absolute;
+            left: 0;
+            top: 2px;
+            height: 12px;
+            width: 12px;
+            border: 1px solid #d0d0d0;
+            border-radius: 100%;
+            z-index: -1;
+        }
+
+        .form-group-inline input:checked+label {
+            background-color: #bababa;
+        }
+
+        .submit {
+            margin: 55px 0px 0px 0px;
+        }
+
+        .submit-buttom {
+            height: 40px;
+            width: 92px;
+            background-color: #fad312;
+            border: 0;
+            border-radius: 3px;
+            margin-bottom: 21px;
+            font-family: Microsoft JhengHei;
+            transition: transform 0.2s;
+            cursor: pointer; 
+        }
+
+        .submit-buttom:hover {
+            transform: scale(1.2);
+        }
+        
+
+        .submit p {
+            font-size: 14px;
+            font-family: Microsoft JhengHei;    
+        }    
+
+        @media(max-width: 628px) {
+            .wrapper {
+                width: auto;
+            }
+            .top-block {
+                width: 100%;
+            }
+
+            .form-group input {
+            display: flex;
+            border: 1px solid #d0d0d0;
+            width: 80%;
+            height: 23px;
+            }
+
+            .submit-buttom:active {
+                transform:scale(1.8 );
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class='wrapper'>
+        <div class='top-block'></div>
+        <h1>新拖延運動報名表單</h1>
+        <div>
+            <ul class='time_and_place'>
+            活動日期：2020/12/10 ~ 2020/12/11
+            <br>
+            活動地點：台北市大安區新生南路二段1號
+            </ul>
+            <p class='must'>* 必填</p>
+        </div>
+        <form class='form-group'>
+            <label class='label' for='name'>暱稱 <span>*</span></label>
+            <input type='text' placeholder="您的回答" id='name'>
+        </form>
+        <form class='form-group'>
+            <label class='label' for='Email'>電子郵件 <span>*</span></label>
+            <input type='text' placeholder="您的電子郵件" id='Email'>
+        </form>
+        <form class='form-group'>
+            <label class='label' for='phone_number'>手機號碼 <span>*</span></label>
+            <input type='text' placeholder="您的手機號碼" id='phone_number'>
+        </form>
+        <form class='form-group-inline'>
+            <p class='form-group-inline-title'>報名類型 <span>*</span></p>
+            <div>
+            <input type='radio' name='sign-up' value='inbed' id='inbed'>
+            <label class='fake-radio' for='inbed'></label>
+            <label class='description' for='inbed'>躺在床上用想像力實作</label>
+            </div>
+            <div>
+            <input type='radio' name='sign-up' value='onfloor' id='onfloor'>
+            <label class='fake-radio' for='inbed'></label>
+            <label class='description' for='onfloor'> 趴在地上滑手機找現成的</label>
+            </div>
+        </form>
+        <form class='form-group'>
+            <label class='label' for='how-u-know'>怎麼知道這個活動的？ <span>*</span></label>
+            <input type='text' placeholder="您的回答" id='how-u-know'>
+        </form>
+        <form class='form-group'>
+            <label class='advice' for='other'>其他 </label>
+            <P >對活動的一些建議 </P>
+            <input type='text' placeholder="您的回答" id='other'>
+        </form>
+        <div class='submit'>
+            <input class='submit-buttom' type='submit'>
+            <P>請勿透過表單送出您的密碼。</P>
+        </div>
+    </div>
+</body>
+</html>
