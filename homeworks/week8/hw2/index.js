@@ -32,7 +32,7 @@ element.addEventListener('click',function(e){
     }
     //被點到的li增加active
     e.target.className = 'top active'
-    let name = e.target.innerTexts
+    let name = e.target.innerText
     getStreams(name)
   }
 })
@@ -47,7 +47,7 @@ function getStreams(name) {
     if(req.status >= 20 && req.status < 400) {
       var streams = JSON.parse(req.responseText).streams
       printStreams(streams)
-    }
+    } 
   }
   req.send()
 }
