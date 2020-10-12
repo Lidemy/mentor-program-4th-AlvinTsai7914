@@ -1,0 +1,50 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>week12 todolist</title>
+	<meta name="description" content="The HTML5 Herald">
+	<meta name="author" content="SitePoint">
+	<script src='https://code.jquery.com/jquery-3.5.1.js'></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <section class='todoapp shadow p-3 mb-5 bg-white rounded'>
+    <header class='header'>
+      <h1>Todos</h1>
+      <div class="input-group mb-3">
+        <button type="button" class="btn btn-primary btn-sm checked-all">All done</button>
+        <input type="text" class="form-control border-white text-input" placeholder="what need to be done" aria-label="Example text with button addon" aria-describedby="button-addon1">
+      </div>
+    </header>
+    <section>
+      <ul class="list-group check-list">
+      </ul>
+    </section>
+    <footer>
+      <span class='todo-count'>
+        <strong class='uncomplete-count'>0</strong>
+        item left
+      </span>
+      <div class='list-status-box'>
+        <ul class="list-group list-group-horizontal-sm">
+          <li class="list-group-item list-status selected">All</li>
+          <li class="list-group-item list-status">Active</li>
+          <li class="list-group-item list-status">Completed
+          </li>
+        </ul>
+      </div>
+      <button type="button" class="btn btn-light all-clear-btn">Clear completed</button>  
+    </footer>
+  </section>    
+  <script src="./scripts.js"></script>
+</body>
+
+</html>

@@ -1,5 +1,18 @@
-<!DOCTYPE html>
 
+<?php
+  if (!empty($_GET['errCode'])) {
+    $error = $_GET['errCode'];
+    switch ($error) {
+      case '1':
+        echo '<script>alert("請填寫完成");</script>';
+        break;
+      default:
+        break;
+    }
+  }
+?>
+
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
