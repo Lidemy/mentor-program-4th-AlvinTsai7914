@@ -1,0 +1,165 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>api 留言板</title>
+	<meta name="description" content="The HTML5 Herald">
+	<meta name="author" content="SitePoint">
+	<script src='https://code.jquery.com/jquery-3.5.1.js'></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+	<style>
+		.card {
+			margin-top: 16px;
+		}
+
+		.comments {
+			margin-bottom: 16px;
+		}
+
+		.more-comments-btn{
+			position: absolute;
+			left: 50%;
+			transition: translat;
+			transform: translateX(-50%);
+		}
+
+	</style>
+
+	<script>		
+		function escape(toOutput){
+			return toOutput.replace(/\&/g, '&amp;')
+				.replace(/\</g, '&lt;')
+        .replace(/\>/g, '&gt;')
+        .replace(/\"/g, '&quot;')
+        .replace(/\'/g, '&#x27')
+        .replace(/\%/g, '(percent)')
+        .replace(/\//g, '&#x2F');
+		}
+		
+		function appendCommentToDOM(container, comment, isPrepend) {
+			const card = `
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">${escape(comment.nickname)}</h5>
+						<p class="card-text">${escape(comment.content)}</p>
+					</div>
+				</div>
+			`
+			if (isPrepend) {
+				container.prepend(card)
+			}else {
+				container.append(card)
+			}
+		}
+
+		$(document).ready(() => {
+			const commentDOM = $('.comments')
+		
+			$.ajax({
+				url: "./handle_comment.php?site_key=123"
+			}).done(function (data){
+				if (!data.ok) {
+					alert(data.message);
+					return
+				}
+				const comments = data.discussions
+				for (let comment of comments) {
+					appendCommentToDOM(commentDOM, comment)
+				}
+			})
+
+			$('.add-comment-form').submit(e => {
+				e.preventDefault();
+				const newCommentData = {
+					'site_key':'123',
+					'nickname':$('input[name=nickname]').val(),
+					'content':$('textarea[name=content]').val()
+				}
+				$.ajax({
+					type: 'POST',
+					url: './handle_add_comment.php',	
+					data: newCommentData
+				}).done(function (data) {
+					if (!data.ok) {
+						alert(data.message)
+						return
+					}
+					appendCommentToDOM(commentDOM, newCommentData, true)
+					$('input[name=nickname]').val('')
+					$('textarea[name=content]').val('')
+				});
+			})
+
+			let page_num = 1
+			$('.more-comments-btn').click(e => {
+				page_num++
+				$.ajax({
+					type: 'GET',
+					url: "./handle_comment.php?site_key=123",
+					data: {page:	page_num}
+				}).done(function (data){
+					if (!data.ok) {
+						alert(data.message);
+						return
+					}
+					const comments = data.discussions
+					for (let comment of comments) {
+						appendCommentToDOM(commentDOM, comment)
+					}
+				})
+			})
+		})
+	</script>
+</head>
+
+<body>
+	<div class='container'>
+		<form class='add-comment-form'>
+			<div class="form-group">
+				<label for="nickname">Nickname</label>
+				<input name='nickname' type="text" class="form-control" id="form-nickname">
+			</div>
+			<div class="form-group">
+				<label for="content-textarea">Comment</label>
+				<textarea name='content' class="form-control" id="content-textarea" rows="3"></textarea>
+			</div>
+			<button type="submit" class="btn btn-primary">送出</button>
+		</form>
+		<div class='comments'>
+		</div>
+		<button type="button" class="btn btn-primary more-comments-btn">更多留言</button>
+	</div>
+	<script>
+	</script>
+</body>
+
+</html>
+
+
+
+	
+
+	
+		
+
+	
+
+	
+	
+		
+
+	
+
+
+
+		
+
+		
+
+
+				

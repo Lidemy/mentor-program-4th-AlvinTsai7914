@@ -129,9 +129,9 @@
         form.setAttribute("method", "GET");
         form.setAttribute("action", `handle_delete_post.php`);
         form.innerHTML = `
-        <div class='delete__form-title'>確定刪除「${e.target.name}」?</div>
+        <div class='delete__form-title'>確定刪除「${escape(e.target.name)}」?</div>
           <div class='delete__form-button'>
-            <input type='hidden' name='id' value='${e.target.id}'/>
+            <input type='hidden' name='id' value='${escape(e.target.id)}'/>
             <input type='submit' value='刪除'></input>
             <input class='delete__form-button__cancel-btn' type='button' value='取消' name='cancle_delete'></input>
             <input style=display:none 
