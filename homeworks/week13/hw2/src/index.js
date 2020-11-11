@@ -55,8 +55,8 @@ export function init(options) {
       }
       const commentDOM = $(commentsSelector)
       appendCommentToDOM(commentDOM, newCommentData, true)
-      $('input[name=nickname]').val('')
-      $('textarea[name=content]').val('')
+      nickNameDOM.val('')
+      contentDOM.val('')
     })
   })
 }
