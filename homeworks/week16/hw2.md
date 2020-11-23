@@ -49,7 +49,7 @@ for(var i=0; i<5; i++) {
      	});
    }
    
-   console:{0}
+   console:{i:0}
    ```
    
 3. ```javascript
@@ -94,17 +94,17 @@ for(var i=0; i<5; i++) {
    }
    
    console:{
-       0
-   	1
-   	2
-   	3
-   	4
+       i:0
+   	i:1
+   	i:2
+   	i:3
+   	i:4
    }
    ```
    
 4. ``` javascript
    /* 
-   call stack 清空，event loop 將 callback function 從 callback queue 移到 call stack 執行，建立 cb function EC，webAPIs 裡的 setTimeout 也依序照著 1~4 秒輸出到 callback queue，並由 event loop 移到 callstack 執行 console.log(i)，由於 cb function 沿著的 scopeChain 往上找到 globalEC.VO 裡的 i 這時已經是 5，所以接下來每隔一秒會印出五次 5。 
+   call stack 清空，event loop 將 callback function 從 callback queue 移到 call stack 執行，建立 cb function EC，webAPIs 裡的 setTimeout 也依序照著 1~4 秒輸出到 callback queue，並由 event loop 移到 callstack 執行 console.log(i)，由於 cb function 沿著的 scopeChain 往上找到 globalEC.VO 裡的 i 這時已經是 5，所以接下來每隔一秒會印出 5 總共五次。 
    */
    globalEC{
    	VO{
@@ -127,11 +127,11 @@ for(var i=0; i<5; i++) {
    }
    
    console:{
-       0
-   	1
-   	2
-   	3
-   	4
+       i:0
+   	i:1
+   	i:2
+   	i:3
+   	i:4
 		5
    	5
 		5
