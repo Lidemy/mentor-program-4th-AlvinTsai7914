@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include('template/head')%>
+    <link rel="stylesheet" href="/css/style_lottery.css">
+</head>
+
+<body>
+  <%- include('template/navbar')%>
+
+    <section class='background active'>
+      <div class='list_table__prize'>
+        <% if (errorMessage && errorMessage.length> 0) { %>
+          <div style='color:red'>
+            <%= errorMessage %>
+          </div>
+          <% } %>
+            <ul class='prize_list'>
+              <form action='/prize_update/<%= prize.id  %>' method='POST' class='prize_list__item'>
+                <div class='prize_list__text'>
+                  獎項: <input type='text' name='prize' value='<%= prize.prize%>'>
+                  圖片URL: <input type='text' name='pic' value='<%= prize.pic%>'>
+                  權重: <input type='text' name='weight' value='<%= prize.weight %>'>
+                </div>
+                <button type="submit" class='prize_button lottery_button' style='padding:8px 16px'>新增</button>
+              </form>
+            </ul>
+      </div>
+    </section>
+
+    <%- include('template/footer')%>
+</body>
+
+</html>

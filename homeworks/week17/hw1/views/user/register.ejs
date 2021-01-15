@@ -1,0 +1,37 @@
+<!doctype html>
+<head>
+  <%- include('../template/head')%>
+
+</head>
+<html lang="en">
+  <%- include('../template/navbar') %>
+  <section class="banner">
+    <div class="banner__wrapper">
+      <h1>存放技術之地</h1>
+      <div>Welcome to my blog</div>
+    </div>
+  </section>
+  <div class="login-wrapper">
+    <h2>Login</h2>
+    <% if (errorMessage && errorMessage.length > 0) { %>
+      <div style='color:red'><%= errorMessage %></div>
+    <% } %>
+    <form action="/handle_register" method="POST">
+      <div class="input__wrapper">
+        <div class="input__label">USERNAME</div>
+        <input class="input__field" type="text" name="username" />
+      </div>
+      
+      <div class="input__wrapper">
+        <div class="input__label">PASSWORD</div>
+        <input class="input__field" type="password" name="password" />
+      </div>
+      <div class="input__wrapper">
+        <div class="input__label">NICKNAME</div>
+        <input class="input__field" type="text" name="nickname" />
+      </div>
+      <input class='login-btn' type='submit' value="註冊" />
+    </form>
+     
+  </div>
+</html>
