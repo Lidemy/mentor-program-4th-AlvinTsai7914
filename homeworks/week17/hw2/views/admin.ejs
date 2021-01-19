@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include('template/head')%>
+    <link rel="stylesheet" href="/css/style_lottery.css">
+</head>
+
+<body>
+  <%- include('template/navbar')%>
+
+    <section class='background active'>
+      <div class='list_table__prize'>
+        <% if (errorMessage && errorMessage.length> 0) { %>
+          <div style='color:red'>
+            <%= errorMessage %>
+          </div>
+          <% } %>
+            <ul class='prize_list'>
+              <% if( prizes ) { %>
+                <% prizes.forEach( prize=> { %>
+                  <li class='prize_list__item'>
+                    <div class='prize_list__text'>Name: <%= prize.prize %>
+                    </div>
+                    <div class='prize_list__button'>
+                      Weight: <%= prize.weight %>
+                        <button type="submit" class='lottery_button prize_button'>
+                          <a href='/prize_update/<%= prize.id %>'>update</a>
+                        </button>
+                        <button type="submit" class='prize_button lottery_button'>
+                          <a href='/prize_delete/<%= prize.id %>'>delete</a>
+                        </button>
+                    </div>
+                  </li>
+                  <% })%>
+                    <% } %>
+                      <form action='/prize_add' method='POST' class='prize_list__item'>
+                        <div class='prize_list__text'>
+                          新增獎項: <input type='text' name='prize'>
+                          圖片URL: <input type='text' name='pic'>
+                          權重: <input type='text' name='weight'>
+                        </div>
+                        <button type="submit" class='prize_button lottery_button' style='padding:8px 16px'>新增</button>
+                      </form>
+            </ul>
+      </div>
+    </section>
+
+    <%- include('template/footer')%>
+</body>
+
+</html>

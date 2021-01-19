@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <%- include('../template/head')%>
+  
+</head>
+<body>
+  <%- include('../template/navbar') %>
+  <section class="banner">
+    <div class="banner__wrapper">
+      <h1>存放技術之地</h1>
+      <div>Welcome to my blog</div>
+    </div>
+  </section>
+  <div class="container-wrapper">
+    <div class="container">
+      <div class="edit-post">
+        <form action="/handle_update_blog/<%= blog.id %>" method="POST">
+          <div class="edit-post__title">
+            編輯文章：
+          </div>
+          <div class="edit-post__input-wrapper">
+            <input class="edit-post__input" name="title" value="<%= blog.title %>" >
+          </div>
+          <div class="edit-post__input-wrapper">
+            <textarea rows="20" class="edit-post__content" name="content"><%= blog.content %></textarea>
+          </div>
+          <div class="edit-post__btn-wrapper">
+            <%if (errorMessage || erroeMessage > 0) {%>
+              <div style='color:red'><%= errorMessage %></div>
+            <% } %>
+              <button class="edit-post__btn" type="submit">送出</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <%- include('../template/footer') %>
+</body>
+</html>

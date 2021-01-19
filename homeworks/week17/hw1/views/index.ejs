@@ -1,0 +1,37 @@
+<!doctype html>
+<head>
+  <%- include('template/head')%>
+  
+</head>
+<html lang="en">
+  <%- include('template/navbar') %>
+  <section class="banner">
+    <div class="banner__wrapper">
+      <h1>存放技術之地</h1>
+      <div>Welcome to my blog</div>
+    </div>
+  </section>
+
+  <div class="container-wrapper">
+    <div class="posts">
+      <% blogs.forEach((blog) => {%>  
+      <article class="post">
+        <div class="post__header">
+          <div><%= blog.title%></div>
+          <div class="post__actions">
+            <% if (userId === blog.UserId) {%>
+            <a class="post__action" href="/update_blog/<%= blog.id %>">編輯</a>
+            <a class="post__action" href="/delete_blog/<%= blog.id %>">刪除</a>
+            <% } %>
+          </div>
+        </div>
+        <div class="post__info"><%= blog.createdAt %></div>
+        <div class="post__content"><%= blog.content %></div>
+        <a class="btn-read-more" href="/blog/<%= blog.id %>">READ MORE</a>
+      </article>
+      <% }) %>
+    </div>  
+  </div>
+
+ <%- include('template/footer') %>
+</html>

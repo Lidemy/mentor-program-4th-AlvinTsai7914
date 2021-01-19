@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include('template/head')%>
+    <link rel="stylesheet" href="/css/style_lottery.css">
+</head>
+
+<body>
+  <%- include('template/navbar')%>
+
+    <section class='background active'>
+      <div class='list_table'>
+        <div class='login_container'>
+          <form action="/handle_login" method="POST">
+            <div class='login'>
+              username:<input type='text' name='username'>
+            </div>
+            <div class='login'>
+              password:<input type='password' name='password'>
+            </div>
+            <button type='submit' class='lottery_button'>送出</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <%- include('template/footer')%>
+</body>
+
+</html>
