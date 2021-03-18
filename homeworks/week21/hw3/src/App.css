@@ -1,0 +1,193 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Microsoft JhengHei;
+}
+
+.wrapper {
+  width: 600px;
+  margin: 0 auto;
+  border: 0px solid gray;
+  padding: 40px 40px;
+  box-shadow: 1.8px 2.4px 5px 0 rgba(0, 0, 0, 0.3);
+}
+
+::placeholder {
+  color: #afafaf;
+  font-size: 16px;
+}
+
+.top-block {
+  background-color: #fad312;
+  height: 8px;
+}
+
+.wrapper h1 {
+  margin-bottom: 35px;
+}
+
+.time_and_place {
+  font-size: 14px;
+  line-height: 1.5em;
+  margin-bottom: 15px;
+}
+
+span {
+  color: #e74149;
+}
+
+.wrapper .must {
+  font-size: 16px;
+  color: #e74149;
+}
+
+.form .label {
+  font-size: 20px;
+  display: block;
+  margin: 50px 0px 20px 0px;
+}
+
+.form input {
+  display: block;
+  border: 1px solid #d0d0d0;
+  width: 287px;
+  height: 23px;
+  font-size: 16px;
+  padding: 6px;
+}
+
+.form .advice {
+  font-size: 20px;
+  display: block;
+  margin: 50px 0px 8px 0px;
+}
+
+.form label + p {
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.form-inline div {
+  position: relative;
+}
+
+.form-inline-title {
+  margin: 50px 0px 20px 0px;
+}
+
+.form-inline p {
+  font-size: 20px;
+}
+
+.form-inline .description {
+  font-size: 14px;
+}
+
+.form-inline div + div {
+  margin-top: 12px;
+}
+
+.form-inline input {
+  cursor: pointer;
+  background-color: #bababa;
+  opacity: 0;
+  margin-right: 5px;
+}
+
+.fake-radio {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  height: 12px;
+  width: 12px;
+  border: 1px solid #d0d0d0;
+  border-radius: 100%;
+  z-index: -1;
+}
+
+.form-inline input:checked + label {
+  background-color: #bababa;
+}
+
+.submit {
+  margin: 55px 0px 0px 0px;
+}
+
+.submit-buttom {
+  height: 40px;
+  width: 92px;
+  background-color: #fad312;
+  border: 0;
+  border-radius: 3px;
+  margin-bottom: 21px;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.submit-buttom:hover {
+  transform: scale(1.2);
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+}
+
+@media (max-width: 628px) {
+  .wrapper {
+    width: auto;
+  }
+  .top-block {
+    width: 100%;
+  }
+
+  .form input {
+    display: flex;
+    border: 1px solid #d0d0d0;
+    width: 80%;
+    height: 23px;
+  }
+
+  .submit-buttom:active {
+    transform: scale(1.8);
+  }
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
